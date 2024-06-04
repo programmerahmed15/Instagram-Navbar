@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Instagram Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: rgb(255, 0, 200);
+            border-bottom: 1px solid #dbdbdb;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            
+        }
+
+        .brand-img {
+            height: 50px;
+            
+        }
+
+        .search-box {
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            width: 150px;
+        }
+
+        .search-box:focus {
+            width: 300px;
+            outline: none;
+        }
+
+        .nav-items {
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .icon {
+            width: 50px;
+            height: 25px;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .nav-wrapper {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+                margin-top: 10px;
+                order: 3;
+            }
+
+            .nav-items {
+                order: 2;
+            }
+
+            .brand-img {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="brand-img">
+            <input type="text" class="search-box" placeholder="Search" id="searchBox">
+            <div class="nav-items">
+                <i class="fas fa-home icon" id="homeIcon"></i>
+                <i class="fas fa-paper-plane icon" id="directIcon"></i>
+                <i class="fas fa-compass icon" id="exploreIcon"></i>
+                <i class="fas fa-heart icon" id="activityIcon"></i>
+                <i class="fas fa-user-circle icon" id="profileIcon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchBox = document.getElementById('searchBox');
+            const homeIcon = document.getElementById('homeIcon');
+            const directIcon = document.getElementById('directIcon');
+            const exploreIcon = document.getElementById('exploreIcon');
+            const activityIcon = document.getElementById('activityIcon');
+            const profileIcon = document.getElementById('profileIcon');
+
+            // Event listeners for icons
+            homeIcon.addEventListener('click', () => alert('Home icon clicked!'));
+            directIcon.addEventListener('click', () => alert('Direct icon clicked!'));
+            exploreIcon.addEventListener('click', () => alert('Explore icon clicked!'));
+            activityIcon.addEventListener('click', () => alert('Activity icon clicked!'));
+            profileIcon.addEventListener('click', () => alert('Profile icon clicked!'));
+
+            // Event listener for search box focus
+            searchBox.addEventListener('focus', () => {
+                searchBox.style.width = '300px';
+            });
+
+            // Event listener for search box blur
+            searchBox.addEventListener('blur', () => {
+                searchBox.style.width = '';
+            });
+        });
+    </script>
+</body>
+</html>
